@@ -1,0 +1,1102 @@
+/* =========================================================
+   UNIVERSITAS TERBUKA - ADMIN UI
+   Modern • Clean • Responsive
+========================================================= */
+
+:root {
+    --primary: #082f7a;
+    --primary-dark: #06245f;
+    --primary-light: #eaf3ff;
+
+    --yellow: #ffd400;
+    --yellow-light: #fff8d6;
+
+    --success: #198754;
+    --warning: #f0ad00;
+    --danger: #dc3545;
+    --info: #0d6efd;
+
+    --text: #26364a;
+    --muted: #718096;
+
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --border: #e5eaf0;
+
+    --sidebar-width: 250px;
+    --header-height: 70px;
+
+    --radius: 14px;
+    --shadow:
+        0 4px 18px rgba(27, 54, 93, .07);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-navbar {
+    height: var(--header-height);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, .96);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, .04);
+}
+
+.admin-navbar-inner {
+    height: 100%;
+
+    width: 100%;
+
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.brand-ut {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    height: 48px;
+}
+
+.brand-ut img {
+    height: 42px;
+    width: auto;
+
+    object-fit: contain;
+
+    transition: .2s ease;
+}
+
+.brand-ut:hover img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+========================================================= */
+
+.admin-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-name {
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: .2s ease;
+}
+
+.notification-button:hover {
+    background: var(--primary-light);
+
+    border-color: #d6e6f8;
+}
+
+.notification-badge {
+    position: absolute;
+
+    top: -2px;
+    right: -2px;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 4px;
+
+    background: var(--danger);
+    color: white;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid white;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - var(--header-height));
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: var(--sidebar-width);
+
+    flex: 0 0 var(--sidebar-width);
+
+    position: fixed;
+
+    left: 0;
+    top: var(--header-height);
+
+    height: calc(100vh - var(--header-height));
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(180deg, #082f7a 0%, #06245f 100%);
+
+    border-right: 1px solid #041d50;
+
+    padding: 18px 12px;
+
+    z-index: 900;
+
+    scrollbar-width: thin;
+}
+
+
+/* scrollbar */
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .35);
+    border-radius: 10px;
+}
+
+
+/* menu */
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+
+    min-height: 46px;
+
+    padding: 10px 14px;
+
+    margin-bottom: 5px;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, .14);
+
+    color: #ffffff;
+
+    transform: translateX(2px);
+}
+
+
+/* aktif */
+
+.sidebar a.active {
+    background: var(--yellow);
+
+    color: #17324d;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, .16);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    margin-left: var(--sidebar-width);
+
+    width: calc(100% - var(--sidebar-width));
+
+    min-width: 0;
+
+    padding: 28px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAGE TITLE
+========================================================= */
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+    color: #17324d;
+
+    font-weight: 700;
+
+    letter-spacing: -.2px;
+}
+
+.content h2 {
+    margin-bottom: 22px;
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.cardbox,
+.card,
+.admin-stat,
+.admin-table-card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.cardbox {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   DASHBOARD STAT CARD
+========================================================= */
+
+.admin-stat {
+    padding: 21px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.admin-stat:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(27, 54, 93, .10);
+}
+
+.admin-stat::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: -25px;
+    top: -25px;
+
+    background: var(--primary-light);
+
+    border-radius: 50%;
+}
+
+.admin-stat small {
+    position: relative;
+    z-index: 1;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+}
+
+.admin-stat-number {
+    position: relative;
+    z-index: 1;
+
+    color: var(--primary);
+
+    font-size: 30px;
+
+    font-weight: 750;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-responsive {
+    border-radius: var(--radius);
+}
+
+.table {
+    color: var(--text);
+
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #f7f9fc;
+
+    color: #526174;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    padding: 13px 12px;
+}
+
+.table tbody td {
+    padding: 13px 12px;
+
+    vertical-align: middle;
+
+    border-color: #edf0f4;
+
+    font-size: 13px;
+}
+
+.table-hover tbody tr {
+    transition: background .15s ease;
+}
+
+.table-hover tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge {
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    padding: 5px 9px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+
+    border-color: var(--primary-dark);
+
+    box-shadow:
+        0 5px 12px rgba(0, 75, 147, .18);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-control,
+.form-select {
+    min-height: 43px;
+
+    border-radius: 9px;
+
+    border: 1px solid #dbe2ea;
+
+    color: var(--text);
+
+    background: #fff;
+
+    box-shadow: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #78a9d7;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 75, 147, .09);
+}
+
+.form-label {
+    color: #405166;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   ALERT
+========================================================= */
+
+.alert {
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+    gap: 4px;
+}
+
+.page-link {
+    border-radius: 8px !important;
+
+    border: 1px solid var(--border);
+
+    color: var(--primary);
+
+    min-width: 36px;
+
+    text-align: center;
+}
+
+.page-item.active .page-link {
+    background: var(--primary);
+
+    border-color: var(--primary);
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+body.login {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #eaf3ff 0,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f4f7fb,
+            #eaf1f8
+        );
+}
+
+.loginbox {
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 34px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px rgba(30, 60, 100, .12);
+}
+
+.loginbox h3 {
+    color: var(--primary);
+
+    font-weight: 750;
+
+    margin-bottom: 5px;
+}
+
+.loginbox p {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   NOTIFICATION DROPDOWN
+========================================================= */
+
+.notification-dropdown {
+    border-radius: 13px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .14);
+
+    border: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   ADMIN TABLE CARD
+========================================================= */
+
+.admin-table-card {
+    overflow: hidden;
+}
+
+.admin-table-header {
+    padding: 18px 20px;
+
+    background: #fff;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .content {
+        padding: 22px;
+    }
+
+    .admin-navbar-inner {
+        padding: 0 18px;
+    }
+
+}
+
+/* =========================================================
+   RESPONSIVE TABLET
+   Mengikuti pola CSS asli pengguna
+========================================================= */
+
+@media (max-width: 991px) {
+
+    :root {
+        --sidebar-width: 210px;
+    }
+
+    .content {
+        padding: 22px;
+    }
+
+    .admin-navbar-inner {
+        padding: 0 18px;
+    }
+
+    .sidebar a {
+        font-size: 14px;
+        padding: 11px 12px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE HP
+   Sidebar tetap sederhana/horizontal seperti CSS asli
+========================================================= */
+
+@media (max-width: 767px) {
+
+    :root {
+        --header-height: 60px;
+    }
+
+    .layout {
+        display: block;
+        min-height: auto;
+    }
+
+
+    /* =========================
+       SIDEBAR HP
+       ========================= */
+
+    .sidebar {
+
+        width: 100%;
+
+        min-height: auto;
+        height: auto;
+
+        position: relative;
+
+        top: 0;
+        left: 0;
+
+        padding: 8px;
+
+        display: flex;
+        align-items: center;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        gap: 5px;
+
+        white-space: nowrap;
+
+        -webkit-overflow-scrolling: touch;
+
+        box-shadow: none;
+
+        transform: none;
+    }
+
+
+    .sidebar a {
+
+        width: auto;
+
+        flex: 0 0 auto;
+
+        margin: 0;
+
+        padding: 9px 12px;
+
+        font-size: 13px;
+
+        white-space: nowrap;
+
+        border-radius: 9px;
+    }
+
+
+    .sidebar a.active {
+
+        transform: none;
+    }
+
+
+    /* =========================
+       CONTENT HP
+       ========================= */
+
+    .content {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        min-height: auto;
+
+        padding: 18px 14px;
+    }
+
+
+    .content h2 {
+
+        font-size: 23px;
+
+        line-height: 1.3;
+    }
+
+
+    /* =========================
+       CARD HP
+       ========================= */
+
+    .cardbox {
+
+        padding: 15px;
+
+        border-radius: 12px;
+    }
+
+
+    /* =========================
+       STAT CARD HP
+       ========================= */
+
+    .admin-stat {
+
+        padding: 16px;
+
+        min-height: 105px;
+
+        border-radius: 12px;
+    }
+
+
+    .admin-stat-number {
+
+        font-size: 27px;
+    }
+
+
+    /* =========================
+       TABLE HP
+       ========================= */
+
+    .table-responsive {
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .table-responsive .table {
+
+        min-width: 750px;
+    }
+
+
+    /* =========================
+       FORM HP
+       ========================= */
+
+    .form-control,
+    .form-select {
+
+        width: 100%;
+
+        min-height: 42px;
+
+        font-size: 14px;
+    }
+
+
+    .btn {
+
+        min-height: 40px;
+    }
+
+
+    /* =========================
+       HEADER HP
+       ========================= */
+
+    .admin-navbar {
+
+        height: var(--header-height);
+    }
+
+
+    .admin-navbar-inner {
+
+        height: var(--header-height);
+
+        padding: 0 12px;
+    }
+
+
+    .brand-ut img {
+
+        height: 44px;
+
+        max-width: 150px;
+    }
+
+
+    .admin-name {
+
+        display: none;
+    }
+
+
+    .admin-right {
+
+        gap: 5px;
+    }
+
+
+    /* =========================
+       NOTIFIKASI HP
+       ========================= */
+
+    .notification-dropdown {
+
+        position: fixed;
+
+        top: 65px;
+
+        left: 10px;
+
+        right: 10px;
+
+        width: auto;
+
+        max-width: none;
+
+        z-index: 3000;
+    }
+}
+
+
+/* =========================================================
+   HP KECIL
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .content {
+
+        padding: 14px 10px;
+    }
+
+
+    .content h2 {
+
+        font-size: 21px;
+    }
+
+
+    .cardbox {
+
+        padding: 12px;
+    }
+
+
+    .sidebar {
+
+        padding: 7px;
+    }
+
+
+    .sidebar a {
+
+        padding: 8px 10px;
+
+        font-size: 12px;
+    }
+
+
+    .brand-ut img {
+
+        height: 42px;
+
+        max-width: 135px;
+    }
+
+
+    .notification-dropdown {
+
+        left: 7px;
+
+        right: 7px;
+    }
+
+
+    .admin-stat {
+
+        padding: 14px;
+    }
+
+
+    .admin-stat-number {
+
+        font-size: 24px;
+    }
+
+
+    .loginbox {
+
+        padding: 25px 20px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH / HP
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .sidebar a {
+
+        min-height: 42px;
+    }
+
+
+    .btn {
+
+        min-height: 42px;
+    }
+
+
+    .form-control,
+    .form-select {
+
+        min-height: 42px;
+    }
+
+
+    .notification-button {
+
+        min-width: 42px;
+
+        min-height: 42px;
+    }
+}

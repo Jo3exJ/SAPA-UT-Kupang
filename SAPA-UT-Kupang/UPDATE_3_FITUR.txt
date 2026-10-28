@@ -1,0 +1,9 @@
+PEMBARUAN FITUR TERBARU
+
+- User: penyimpanan sementara form di browser 24 jam + peringatan sebelum meninggalkan form.
+- Data Pengunjung: filter cepat status, urutan terbaru/terlama, nama dapat diklik, baris status lebih mudah dibaca, Detail tetap sticky.
+- Dashboard: layanan paling banyak hari ini.
+- Admin: Profil Saya, riwayat Aktivitas Admin, login terakhir.
+- Keamanan: log aktivitas untuk login/logout, perubahan status, pengaturan, tambah admin, dan backup database.
+- Database: migrasi lengkap untuk kolom kunjungan dan tabel log. Fitur pemanggilan nama dari Antrian tidak digunakan.
+- Tidak ada nomor registrasi maupun nomor antrean.

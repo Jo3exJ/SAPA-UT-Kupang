@@ -1,0 +1,20 @@
+UPDATE NOTIFIKASI TINGKAT MENENGAH
+
+Fitur:
+- Polling AJAX otomatis setiap 10 detik tanpa reload halaman.
+- Notifikasi pengunjung baru.
+- Notifikasi aktivitas petugas dan layanan selesai.
+- Pengingat data yang belum selesai selama minimal 30 menit.
+- Status dibaca disimpan per akun admin/petugas.
+- Data sumber wa_admin dapat memberi notifikasi, tetapi tidak ditambahkan ke antrean.
+
+File baru:
+- admin/notifikasi_helper.php
+- admin/notifikasi_poll.php
+- admin/notifikasi_baca.php
+
+Database:
+schema_bootstrap.php akan membuat tabel notifikasi dan notifikasi_dibaca otomatis saat halaman admin diakses, jika akun MySQL memiliki izin CREATE TABLE.
+
+Catatan pengujian:
+Sintaks PHP telah diperiksa. Pengujian langsung terhadap database XAMPP dan dua sesi login belum dilakukan; lakukan setelah memasang ZIP.
